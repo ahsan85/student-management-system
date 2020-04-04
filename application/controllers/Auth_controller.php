@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Auth_controller extends CI_Controller
 {
 
@@ -9,6 +8,11 @@ class Auth_controller extends CI_Controller
         $this->load->helper(array("form", "url"));
         $this->load->library("form_validation");
         $this->load->model('Db_model');
+
+        if (isset($this->session->loggedIn)) {
+
+            redirect('student-portal');
+        }
     }
 
 
@@ -29,7 +33,7 @@ class Auth_controller extends CI_Controller
                 array(
                     "field" => "Password",
                     "lable" => "Password",
-                    "rules" => "required|min_length[6]"
+                    "rules" => "required|min_length[5]"
                 ),
 
             );
@@ -43,8 +47,19 @@ class Auth_controller extends CI_Controller
                     "password" => $data['Password']
 
                 );
+                $ressult = $this->Db_model->is_user_exsist($data_array);
+                if ($ressult) {
+                    $data = array(
+                        'email' => $ressult['email'],
+                        'password' =>  $ressult['password'],
+                        'role' => $ressult['role'],
+                        'loggedIn' => true
 
-                $this->is_user_exists_in_tbl($data_array);
+                    );
+                    $this->session->set_userdata($data);
+
+                    redirect('student-portal');
+                }
             }
         }
 
@@ -54,24 +69,6 @@ class Auth_controller extends CI_Controller
     }
 
 
-    public function is_user_exists_in_tbl($data_array)
-    {
-
-        $ressult = $this->Db_model->is_user_exsist($data_array);
-        if ($ressult) {
-            $_SESSION['isLoggedIn'] = true;
-
-            if (isset($_POST['remember'])) {
-                $email = $ressult['email'];
-                $password = $ressult['password'];
-                setcookie('email', $email, time() + 6 * 60 * 7);
-                setcookie('password', $password, time() + 60 * 60 * 7);
-            }
-            if (isset($_SESSION['isLoggedIn'])) {
-                redirect('student-portal');
-            }
-        }
-    }
 
 
 

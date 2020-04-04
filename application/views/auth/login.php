@@ -53,31 +53,5 @@
 </div>
 
 <!-- load html foot section which may also include javascript -->
-<!-- <?php $this->load->view("partials/foot"); ?> -->
+<?php $this->load->view("partials/foot"); ?>
 
-<footer class="page-footer font-small  fixed-bottom ">
-    <div class="footer-copyright text-center py-3  p-3  bg-secondary text-white>© 2020 Copyright:
-    <a href="" style=" color: white"> xyz</a>
-    </div>
-</footer>
-<?php
-
-if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
-    $email = $_COOKIE['email'];
-    $password = $_COOKIE['password'];
-    // var_dump($email);
-    // die();
-    echo "
-
-    <script>
-       var a= document.getElementById('Email').val = $email;
-        console.log(a);
-        document.getElementById('password').val = $password;
-    </script>
-    ";
-}
-?>
-</body>
-
-</html>
-<?php

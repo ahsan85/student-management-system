@@ -5,6 +5,11 @@ class Portal_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->helper(array("url"));
+
+        if(!isset($this->session->loggedIn))
+        {
+          redirect('login');
+        }
     
 
     }

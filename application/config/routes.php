@@ -54,7 +54,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['registration-form'] = 'Registration_controller/register_user';
 $route['registration-form-submit'] = 'Registration_controller/registeration_form_submit';
 
+$route['default_controller'] = 'Auth_controller/login';
 $route['login'] = 'Auth_controller/login';
+
 $route['register'] = 'Auth_controller/register';
 
 
