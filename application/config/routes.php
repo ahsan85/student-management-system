@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -51,19 +51,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$route['default_controller'] = 'welcome';
 
-$route['registration-form'] = 'Registration_controller/register_user';
-$route['registration-form-submit'] = 'Registration_controller/registeration_form_submit';
+//$route['register-user'] = 'Auth_controller/register_user';
+
 
 $route['default_controller'] = 'Auth_controller/login';
 $route['login'] = 'Auth_controller/login';
 
-$route['register'] = 'Auth_controller/register';
+
+$route['portal/time-table/create-time'] = 'Portal_controller/time_table';
+
+$route['portal/time-table/time'] = 'Portal_controller/create_time_table';
+
+$route['portal/time-table/view-time-table'] = 'Portal_controller/view_time_table';
+
+$route['portal/create-user'] = 'User_controller/create_user';
 
 
+$route['portal'] = 'Portal_controller/portal_view';
 
-$route['student-portal'] = 'Portal_controller/portal_view';
-// $route['student-portal-'] = 'Portal_controller/portal_view_actions';
-// $route['student-portal/registration-form'] = 'Registration_controller/register_user';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

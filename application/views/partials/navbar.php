@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-light">
     <button class="btn btn-outline-success  ml-4" type="button">My Profile</button>
-    <button class="btn  btn-outline-secondary ml-4" type="button">Time Table</button>
-    <button class="btn  btn-outline-secondary ml-4 " type="button">Attendance</button>
+    <a class="btn  btn-outline-secondary ml-4" href="?time-table=true">Time Table</a>
+    <button class="btn  btn-outline-secondary ml-4" type="button">Attendance</button>
     <button class="btn  btn-outline-secondary ml-4" type="button">Date Sheet</button>
     <button class="btn  btn-outline-secondary ml-4" type="button">Academics Detail</button>
     <button class="btn  btn-outline-secondary ml-4" type="button">Fee Detail</button>
@@ -10,7 +10,7 @@
     <?php
     if ($this->session->role == 'admin'  ||  $this->session->role == 'teacher') {
     ?>
-        <a class="btn  btn-outline-secondary ml-4" type="submit" name="register">Register Person</a>
+        <a class="btn  btn-outline-secondary ml-4" name="register" href="?register=true">Create User</a>
     <?php
     }
     ?>
@@ -24,5 +24,11 @@ if (isset($_GET['logout'])) {
     session_destroy();
     redirect('login');
 }
+
+if (isset($_GET['register'])) {
+
+    redirect('portal/create-user');
+}
+
 
 ?>
