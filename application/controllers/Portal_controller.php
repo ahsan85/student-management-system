@@ -30,6 +30,8 @@ class Portal_controller extends CI_Controller
         'name' => $data['Department'],
         'degree' => $data['Degree'],
         'semester' => $data['Semester']
+
+
       );
       $this->Db_model->insert_into_department_tbl($detail);
       $this->create_time_table();
@@ -37,18 +39,19 @@ class Portal_controller extends CI_Controller
   }
 
 
+
+
   public function create_time_table()
   {
-    $techer_data = $this->Db_model->get_data_form_users_tbl();
-    $dataView['teachers'] = $techer_data;
-    $this->load->view('time_table/create_time_tbl', $dataView);
-  }
 
 
+    $techer_data = $this->Db_model->get_teacher_form_users_tbl();
+    $dataView['teachers']=$techer_data;
+    // var_dump($dataView);
+   
+    
 
-  public function view_time_table()
-  {
+     $this->load->view('time_table/create_time_tbl',$dataView);
 
-    $this->load->view('time_table/view_time_table');
   }
 }

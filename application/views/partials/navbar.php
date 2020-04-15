@@ -1,34 +1,43 @@
-<nav class="navbar navbar-light bg-light">
-    <button class="btn btn-outline-success  ml-4" type="button">My Profile</button>
-    <a class="btn  btn-outline-secondary ml-4" href="?time-table=true">Time Table</a>
-    <button class="btn  btn-outline-secondary ml-4" type="button">Attendance</button>
-    <button class="btn  btn-outline-secondary ml-4" type="button">Date Sheet</button>
-    <button class="btn  btn-outline-secondary ml-4" type="button">Academics Detail</button>
-    <button class="btn  btn-outline-secondary ml-4" type="button">Fee Detail</button>
-    <button class="btn  btn-outline-secondary ml-4" type="submit" name="help">Help</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <?php
-    if ($this->session->role == 'admin'  ||  $this->session->role == 'teacher') {
-    ?>
-        <a class="btn  btn-outline-secondary ml-4" name="register" href="?register=true">Create User</a>
-    <?php
-    }
-    ?>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" name="dept" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Department
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" name="createDept" href="?create-department=true">Create Department</a>
+                    <a class="dropdown-item" name="viewDept" href="?view-departments=true">View Departments</a>
+                    
+                </div>
+            </li>
 
-    <a class="btn  btn-outline-secondary ml-4" name="logout" href="?logout=true">Log Out</a>
+        </ul>
+
+    </div>
 </nav>
 
 <?php
-
-if (isset($_GET['logout'])) {
-    session_destroy();
-    redirect('login');
+if (isset($_GET['create-department'])) {
+    redirect('portal/create-department');
 }
+if (isset($_GET['view-departments'])) {
 
-if (isset($_GET['register'])) {
-
-    redirect('portal/create-user');
+   redirect('portal/view-department');
 }
 
 
-?>
+
+
+

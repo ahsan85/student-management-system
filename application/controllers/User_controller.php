@@ -39,24 +39,33 @@ class User_controller extends CI_Controller
                 array(
                     "field" => "Password",
                     "lable" => "Password",
-                    "rules" => "required|min_length[6]|trim"
-                ),
-                // help
-                array(
-                    "field" => "subject",
-                    "lable" => "subject",
-                    "rules" => "required|min_length[6]|trim"
+                    "rules" => "required|min_length[3]|trim"
                 ),
 
             );
 
+            if (isset($_POST['Role']) && $_POST['Role'] == 'teacher') {
+
+                // help
+                $config_rules[] =  array(
+                    "field" => "subject",
+                    "lable" => "subject",
+                    "rules" => "required|min_length[2]|trim"
+                );
+            }
 
             $this->form_validation->set_rules($config_rules);
-            if ($this->form_validation->run() == False) {
+           
+            if ($this->form_validation->run() == FALSE) {
+
+
                 $this->load->view('user/create_user');
             } else {
                 $data = $this->input->post();
+
+
                 if ($_POST['Role'] == 'Admin') {
+
                     $data_array = array(
                         "name" => $data['name'],
                         "email" => $data['Email'],
@@ -66,6 +75,7 @@ class User_controller extends CI_Controller
 
                     );
                 } else if ($_POST['Role'] == 'teacher') {
+
 
                     $data_array = array(
                         "name" => $data['name'],
@@ -92,6 +102,7 @@ class User_controller extends CI_Controller
                     );
                 }
                 $result = $this->Db_model->insert_into_tbl($data_array);
+
                 $this->load->view('user/create_user');
             }
         } else {

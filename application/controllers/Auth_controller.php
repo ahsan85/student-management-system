@@ -54,8 +54,10 @@ class Auth_controller extends CI_Controller
                         'email' => $ressult['email'],
                         'password' =>  $ressult['password'],
                         'role' => $ressult['role'],
+                        'name' => $ressult['name'],
+                        'semester' => $ressult['semester'],
+                        'department' => $ressult['department'],
                         'loggedIn' => true
-
                     );
                     $this->session->set_userdata($data);
 

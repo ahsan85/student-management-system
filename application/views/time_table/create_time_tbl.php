@@ -49,23 +49,24 @@
                 <label for="slot">Slot</label>
                 <select name="slot" class="form-control">
                     <option value="8:00AM To 9:00AM">Slot 1st (8:00AM To 8:59AM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 2nd (9:00AM To 9:59AM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 3rd (10:00AM To 10:59AM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 4th (11:00AM To 11:59AM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 5th (12:00PM To 12:59PM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 6th (1:00PM To 1:59PM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 7th (2:00PM To 2:59PM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 8th (3:00PM To 3:59PM)</option>
-                    <option value="8:00AM To 9:00AM">Slot 9th (4:00PM To 4:59PM)</option>
+                    <option value="9:00AM To 9:59AM">Slot 2nd (9:00AM To 9:59AM)</option>
+                    <option value="10:00AM To 10:59AM">Slot 3rd (10:00AM To 10:59AM)</option>
+                    <option value="11:00AM To 11:59AM">Slot 4th (11:00AM To 11:59AM)</option>
+                    <option value="12:00PM To 12:59PM">Slot 5th (12:00PM To 12:59PM)</option>
+                    <option value="1:00PM To 1:59PM">Slot 6th (1:00PM To 1:59PM)</option>
+                    <option value="2:00PM To 2:59PM">Slot 7th (2:00PM To 2:59PM)</option>
+                    <option value="3:00PM To 3:59PM">Slot 8th (3:00PM To 3:59PM)</option>
+                    <option value="4:00PM To 4:59PM">Slot 9th (4:00PM To 4:59PM)</option>
 
                 </select>
+                <?php echo form_error("slot", "<div class='error' >", "</div>"); ?>
             </div>
             <div class="form-group ">
-                <label for="teacher">Teacher</label>
-                <select name="teacher" class="form-control">
+                <label for="teacherId">Teacher</label>
+                <select name="teacherId" class="form-control">
                     <?php
                     foreach ($teachers as $teacher => $value) {  ?>
-                        <option value="<?php echo "$value->name"; ?>"><?php echo "$value->name"; ?></option>
+                        <option value="<?php echo "$value->id"; ?>"><?php echo "$value->name"; ?></option>
                     <?php
                     }
                     ?>
@@ -84,7 +85,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary"  name="submit1" value="1">Create</button>
         </div>
     </form>
 

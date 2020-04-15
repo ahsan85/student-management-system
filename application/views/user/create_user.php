@@ -16,7 +16,6 @@
         list-style: none;
         max-width: 40%;
         align-items: center;
-
         margin-top: 5%;
     } */
 
@@ -75,7 +74,7 @@
             <div class="form-group mb-2 ">
                 <label for="Role">Role</label>
                 <select name="Role" class="form-control  " id="type">
-                    <option selected>Admin</option>
+                    <option  value="Admin" selected>Admin</option>
                     <option value="teacher">Teacher</option>
 
                     <option value="student">Student</option>

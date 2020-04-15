@@ -58,17 +58,26 @@ $route['default_controller'] = 'Auth_controller/login';
 $route['login'] = 'Auth_controller/login';
 
 
-$route['portal/time-table/create-time'] = 'Portal_controller/time_table';
+$route['portal/time-table'] = 'Time_tbl_controller/time_table';
 
-$route['portal/time-table/time'] = 'Portal_controller/create_time_table';
 
-$route['portal/time-table/view-time-table'] = 'Portal_controller/view_time_table';
+$route['portal/time-table/view-time-table'] = 'Time_tbl_controller/get_time_tbl';
 
 $route['portal/create-user'] = 'User_controller/create_user';
-
+$route['create-user'] = 'User_controller/create_user';
 
 $route['portal'] = 'Portal_controller/portal_view';
 
+
+
+// create department
+$route['portal/create-department'] = 'Department_controller/create_department';
+
+// view departments
+$route['portal/view-department'] = 'Department_controller/view_departments';
+
+// create degree
+$route['portal/create-degree'] = 'Degree_controller/create_degree';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

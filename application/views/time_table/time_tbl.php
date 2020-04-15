@@ -1,6 +1,8 @@
+
+
 <div class="container mt-5 " style="width: 30%">
 
-    <form class="form" method="POST" action="time-table/create-time">
+    <form class="form" method="POST" action="portal/time-table">
         <div class="form-group">
             <label for="Degree">Select Degree </label>
             <select name="Degree" class="form-control">
@@ -36,9 +38,8 @@
 
         </div>
 
-        <button type="submit" name="submit" value="1" class=" btn fa fa-chevron-circle-right pull-right" aria-hidden="true" style="font-size: 30px"></button>
-
+        <button type="submit" name="create" value="1" class=" btn fa fa-chevron-circle-right pull-right" aria-hidden="true" style="font-size: 30px"></button>
+        <button type="submit" name="delete" value="2" class=" btn  pull-left" aria-hidden="true">delete</button>
         <form>
 </div>
 
-<?php

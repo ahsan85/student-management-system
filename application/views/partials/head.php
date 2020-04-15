@@ -27,7 +27,7 @@
             <img src="/assets/img/gcuf-sahiwal.JPG" alt="Italian Trulli" class="img ">
         </div>
         <div class="col-lg-4">
-            <p style="font-size: 50px">Student Portal</p>
+            <p style="font-size: 40px">Management Portal</p>
         </div>
 
         <div class="col-lg-4">
@@ -37,4 +37,4 @@
         </div>
 
     </div>
-    <hr>
+    
